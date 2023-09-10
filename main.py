@@ -30,13 +30,15 @@ class WebContentRecommendationSystem:
         user_profile = self.user_profiler.generate_user_profile(processed_data)
 
         # Step 5: Recommendation Generation
-        recommendations = self.recommendation_generator.generate_recommendations(user_profile)
+        recommendations = self.recommendation_generator.generate_recommendations(
+            user_profile)
 
         # Step 6: Recommendation Delivery
         self.content_deliverer.deliver_recommendations(recommendations)
 
         # Step 7: Performance Monitoring and Feedback Loop
-        self.performance_monitor.monitor_performance(user_profile, recommendations)
+        self.performance_monitor.monitor_performance(
+            user_profile, recommendations)
 
 
 class DataCollector:
@@ -83,7 +85,8 @@ class DataCleaner:
     def _clean_image_data(self, image_data):
         # Implement data cleaning techniques for image data
         # For example, resize the image or apply image enhancement algorithms
-        resized_image_data = self._resize_image(image_data, width=500, height=500)
+        resized_image_data = self._resize_image(
+            image_data, width=500, height=500)
         return resized_image_data
 
     def _resize_image(self, image_data, width, height):
@@ -98,10 +101,14 @@ class DataCleaner:
 class NLPProcessor:
     def process_data(self, data):
         # Perform various NLP tasks on the collected textual data
-        sentiment_analysis_results = self._perform_sentiment_analysis(data['text_data'])
-        topic_modeling_results = self._perform_topic_modeling(data['text_data'])
-        keyword_extraction_results = self._perform_keyword_extraction(data['text_data'])
-        entity_recognition_results = self._perform_entity_recognition(data['text_data'])
+        sentiment_analysis_results = self._perform_sentiment_analysis(
+            data['text_data'])
+        topic_modeling_results = self._perform_topic_modeling(
+            data['text_data'])
+        keyword_extraction_results = self._perform_keyword_extraction(
+            data['text_data'])
+        entity_recognition_results = self._perform_entity_recognition(
+            data['text_data'])
         summarization_results = self._perform_summarization(data['text_data'])
 
         # Return the processed data
@@ -141,9 +148,12 @@ class NLPProcessor:
 class UserProfileGenerator:
     def generate_user_profile(self, processed_data):
         # Generate user profiles based on their interactions with content, preferences, and behavior
-        user_profile = self._analyze_user_interaction(processed_data['sentiment_analysis_results'])
-        user_profile.update(self._analyze_user_preferences(processed_data['topic_modeling_results']))
-        user_profile.update(self._analyze_user_behavior(processed_data['keyword_extraction_results']))
+        user_profile = self._analyze_user_interaction(
+            processed_data['sentiment_analysis_results'])
+        user_profile.update(self._analyze_user_preferences(
+            processed_data['topic_modeling_results']))
+        user_profile.update(self._analyze_user_behavior(
+            processed_data['keyword_extraction_results']))
 
         # Return the user profile
         return user_profile
